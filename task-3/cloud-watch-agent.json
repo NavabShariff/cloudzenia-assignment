@@ -1,33 +1,28 @@
 {
-    "agent": {
-      "metrics_collection_interval": 60,
-      "run_as_user": "root"
-    },
-    "metrics": {
-      "namespace": "EC2",
-      "append_dimensions": {
-        "InstanceId": "i-045330f24a8b5c155"
-      },
-      "metrics_collected": {
-        "mem": {
-          "measurement": [
-            "mem_used_percent"
-          ],
-          "metrics_collection_interval": 60
-        }
-      }
-    },
-    "logs": {
-        "logs_collected": {
-          "files": {
-            "collect_list": [
-              {
-                "file_path": "/var/log/nginx/access.log",
-                "log_group_name": "/nginx/access-logs",
-                "log_stream_name": "{instance_id}"
-              }
-            ]
+	"metrics": {
+		"append_dimensions": {
+			"InstanceId": "${aws:InstanceId}"
+		},
+		"metrics_collected": {
+			"mem": {
+				"measurement": [
+					"mem_used_percent"
+				],
+				"metrics_collection_interval": 60
+			}
+		}
+	},
+  "logs": {
+    "logs_collected": {
+      "files": {
+        "collect_list": [
+          {
+            "file_path": "/var/log/nginx/access.log",
+            "log_group_name": "/nginx/access-logs",
+            "log_stream_name": "${aws:InstanceId}"
           }
-        }
+        ]
       }
+    }
+  }
 }
