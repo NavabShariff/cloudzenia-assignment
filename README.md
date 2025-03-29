@@ -52,16 +52,6 @@ Deployed two EC2 servers in the Mumbai region.
 
 Used the same VPC network and the same load balancer from Task-1 to optimize costs.
 
-## **Deployment Links**
-
-### **Instance URLs:**
-- [https://ec2-alb-instance.shariff.info](https://ec2-alb-instance.shariff.info)
-- [https://ec2-instance.shariff.info](https://ec2-instance.shariff.info)
-
-### **Docker URLs:**
-- [https://ec2-alb-docker.shariff.info](https://ec2-alb-docker.shariff.info)
-- [https://ec2-docker.shariff.info](https://ec2-docker.shariff.info)
-
 ## **Docker container deployment**
 ```
 mkdir ~/nginx-html
@@ -73,6 +63,17 @@ echo "Namaste from Docker Container!" > ~/nginx-html/index.html
 ```
 docker compose -f task-2/docker-compose.yaml up -d
 ```
+
+## **Deployment Links**
+
+### **Instance URLs:**
+- [https://ec2-alb-instance.shariff.info](https://ec2-alb-instance.shariff.info)
+- [https://ec2-instance.shariff.info](https://ec2-instance.shariff.info)
+
+### **Docker URLs:**
+- [https://ec2-alb-docker.shariff.info](https://ec2-alb-docker.shariff.info)
+- [https://ec2-docker.shariff.info](https://ec2-docker.shariff.info)
+
  
 # Task-3: Observability (EC2 Metrics & Logs in CloudWatch)
 
