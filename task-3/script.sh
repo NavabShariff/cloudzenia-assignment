@@ -1,5 +1,22 @@
 #!/bin/bash
 
+USER_ID=$(id -u)
+
+if [[ ${USER_ID} -ne 0 ]] ; then
+
+  echo "you can't install jenkins, user should be a root user"
+  echo "help: sudo su"
+  exit 1
+
+fi
+
+which unzip
+
+if [ $? == 0 ]; then
+  echo "unzip is already available"
+else
+  apt install unzip -y
+fi
 
 wget https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCloudWatchAgent.zip
 unzip AmazonCloudWatchAgent.zip
