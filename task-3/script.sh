@@ -1,26 +1,29 @@
 #!/bin/bash
 
 
+wget https://s3.amazonaws.com/amazoncloudwatch-agent/linux/amd64/latest/AmazonCloudWatchAgent.zip
+unzip AmazonCloudWatchAgent.zip
+sudo ./install.sh
 
-# Update system packages
-sudo apt update -y
-
-# Install NGINX and CloudWatch Agent
-sudo apt install -y amazon-cloudwatch-agent
 
 
 
 # Create CloudWatch Agent configuration file
 sudo tee /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json > /dev/null <<EOT
 {
-  "metrics": {
-    "metrics_collected": {
-      "mem": {
-        "measurement": ["mem_used_percent"],
-        "metrics_collection_interval": 60
-      }
-    }
-  },
+	"metrics": {
+		"append_dimensions": {
+			"InstanceId": "${aws:InstanceId}"
+		},
+		"metrics_collected": {
+			"mem": {
+				"measurement": [
+					"mem_used_percent"
+				],
+				"metrics_collection_interval": 60
+			}
+		}
+	},
   "logs": {
     "logs_collected": {
       "files": {
