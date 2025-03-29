@@ -62,8 +62,18 @@ Used the same VPC network and the same load balancer from Task-1 to optimize cos
 - [https://ec2-alb-docker.shariff.info](https://ec2-alb-docker.shariff.info)
 - [https://ec2-docker.shariff.info](https://ec2-docker.shariff.info)
 
+## **Docker container deployment**
+```
+mkdir ~/nginx-html
+```
+```
+echo "Namaste from Docker Container!" > ~/nginx-html/index.html 
+```
 
-
+```
+docker compose -f task-2/docker-compose.yaml up -d
+```
+ 
 # Task-3: Observability (EC2 Metrics & Logs in CloudWatch)
 
 ### **Overview**  
