@@ -48,7 +48,7 @@ sudo tee /opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json > /de
           {
             "file_path": "/var/log/nginx/access.log",
             "log_group_name": "/nginx/access-logs",
-            "log_stream_name": "{instance_id}"
+            "log_stream_name": "$INSTANCE_ID"
           }
         ]
       }
